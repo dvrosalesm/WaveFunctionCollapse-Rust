@@ -1,4 +1,4 @@
-# WaveFunctionCollapse-Rust
+# Wave Function Collapse in Rust
 Own implementation of the Tiled Wave Function Collapse algorithm in Rust
 
 # Run it
