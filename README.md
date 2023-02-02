@@ -10,7 +10,7 @@ Own implementation of the Tiled Wave Function Collapse algorithm in Rust
 ![Tile2](https://raw.githubusercontent.com/dvrosalesm/WaveFunctionCollapse-Rust/main/interface/assets/tiles/2.png)
 ![Tile3](https://raw.githubusercontent.com/dvrosalesm/WaveFunctionCollapse-Rust/main/interface/assets/tiles/3.png)
 
-4th tile was ommited for the resutls
+4th tile was ommited for the results
 
 # Results:
 ![image](https://user-images.githubusercontent.com/11451856/216241282-ae2b2ec7-e577-47ef-8b8e-bcd2038930dd.png)
