@@ -1,5 +1,5 @@
 # Wave Function Collapse in Rust
-Own implementation of the Tiled Wave Function Collapse algorithm in Rust
+Own implementation of the Tiled Wave Function Collapse algorithm in Rust as Bevy Plugin
 
 # Run it
 - Run `cargo run .` in the root directory to start the Bevy App.
