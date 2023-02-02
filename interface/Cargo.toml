@@ -1,0 +1,11 @@
+[package]
+name = "interface"
+version = "0.1.0"
+resolver = "2"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.9.1"
+wfc = { path = "../wfc" }

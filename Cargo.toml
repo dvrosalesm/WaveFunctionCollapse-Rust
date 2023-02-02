@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+  "interface",
+  "wfc"
+]
+
+resolver = "2"
