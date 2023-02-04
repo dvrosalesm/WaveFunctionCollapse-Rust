@@ -23,7 +23,7 @@ enum SlotSides {
 
 impl Plugin for WFCPlugin {
     fn build(&self, app: &mut App) {
-        app.insert_resource(WFCResource::new(20))
+        app.insert_resource(WFCResource::new(50))
             .add_startup_system(weight_tiles)
             .add_system_set(
                 SystemSet::new()
@@ -35,7 +35,7 @@ impl Plugin for WFCPlugin {
 }
 
 fn weight_tiles(mut tiles_resource: ResMut<WFCResource>) {
-    let num_images = 3;
+    let num_images = 4;
     let num_variations = num_images * 4;
 
     // Load weights and create initial probabilities
@@ -78,16 +78,6 @@ fn weight_tiles(mut tiles_resource: ResMut<WFCResource>) {
         })
         .collect::<Vec<Tile>>();
 
-    // tiles_with_rules.push(Tile {
-    //     rules: vec![
-    //         "z".to_string(),
-    //         "z".to_string(),
-    //         "z".to_string(),
-    //         "z".to_string(),
-    //     ],
-    //     rotation: TileRotation::Zero,
-    //     file: "3".to_string(),
-    // });
 
     tiles_resource.tiles = tiles_with_rules;
     tiles_resource.slots = vec![
@@ -231,18 +221,24 @@ fn render_images(
         }
         let tile = &tiles_resource.tiles[slots[position][0]];
 
-        let pos_x = ((position as u32 * 50) % (tiles_resource.grid_width as u32 * 50)) as f32;
-        let pos_y = (position as f32 / tiles_resource.grid_width as f32).floor() * -50.0;
+        let tile_file = if slots[position].len() == 1 {
+            tile.file.to_string()
+        } else {
+            "loading".to_string()
+        };
+
+        let pos_x = ((position as u32 * 25) % (tiles_resource.grid_width as u32 * 25)) as f32;
+        let pos_y = (position as f32 / tiles_resource.grid_width as f32).floor() * -25.0;
 
         let sprite1 = SpriteBundle {
             transform: Transform::from_xyz(
-                pos_x - ((tiles_resource.grid_width as f32 * 50.0) / 2.0 - 25.0),
-                pos_y + ((tiles_resource.grid_width as f32 * 50.0) / 2.0 - 25.0),
+                pos_x - ((tiles_resource.grid_width as f32 * 25.0) / 2.0 - 12.5),
+                pos_y + ((tiles_resource.grid_width as f32 * 25.0) / 2.0 - 12.5),
                 0f32,
             )
             .with_scale(Vec3 {
-                x: 1.0,
-                y: 1.0,
+                x: 0.5,
+                y: 0.5,
                 z: 0.0,
             })
             .with_rotation(Quat::from_rotation_z(match tile.rotation {
@@ -251,7 +247,7 @@ fn render_images(
                 TileRotation::Half => -PI,
                 TileRotation::ThreeQuarters => -PI * 1.5,
             })),
-            texture: asset_server.load(format!("tiles/{}.png", tile.file)),
+            texture: asset_server.load(format!("tiles/{}.png", tile_file)),
             ..default()
         };
 
