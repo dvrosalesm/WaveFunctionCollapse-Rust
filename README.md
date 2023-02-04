@@ -13,5 +13,5 @@ Own implementation of the Tiled Wave Function Collapse algorithm in Rust as Bevy
 4th tile was ommited for the results
 
 # Results:
-![image](https://user-images.githubusercontent.com/11451856/216241282-ae2b2ec7-e577-47ef-8b8e-bcd2038930dd.png)
-![image](https://user-images.githubusercontent.com/11451856/216241380-ca8e8974-0b27-490c-952e-da63ac2234f1.png)
+![1st generated image](https://user-images.githubusercontent.com/11451856/216794021-ab4be1f8-93d7-4080-858e-094ff9ba54fa.png)
+![2nd generated image](https://user-images.githubusercontent.com/11451856/216794044-f96d8f1d-df37-4689-b62a-8686f3697a56.png)
